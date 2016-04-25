@@ -54,7 +54,7 @@ function getWinner(playerMove,computerMove) {
 		winner = "player";
     }
 	
-	[BETTER VERSION - Incomplete]
+	[BETTER VERSION - INCOMPLETE]
 	function getWinner(playerMove,computerMove) {
 	if (winnerIs("player")) {
 		winner = "player";
@@ -85,6 +85,31 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    /* 
+    while ((playerWins < 5) || (computerWins < 5)) {
+    }
+    */
+    getPlayerMove(getInput());
+    getComputerMove(randomPlay());
+    while ((playerWins < 5) || (computerWins < 5)) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove, computerMove);
+        if (winner = "tie") {
+            console.log("We both chose " + playerMove + ". It's a tie. Play again?")
+        } else {
+            console.log("You chose " + playerMove + ". I picked " + computerMove + ".");
+            if (winner = "computer") {
+                computerWins ++;
+                console.log("Muahaha! Artificial intelligence is superior intelligence.")
+            } else {
+                playerWins ++;
+                console.log("You won!? Impossible.")
+            }
+            console.log("Currently, you've won " + playerWins + " times, and I won " + computerWins + " times.");
+        }
+    }
     return [playerWins, computerWins];
 }
 
+playToFive();
